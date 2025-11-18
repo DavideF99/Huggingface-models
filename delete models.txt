@@ -1,0 +1,37 @@
+1. Remove all cached models: 
+
+In order to delete models that have been downloaded and their respective weights we need to run the following in the terminal. 
+
+~/.cache/huggingface/hub
+
+rm -rf ~/.cache/huggingface/hub
+
+
+2. Remove only specific models
+
+Inside the cache folder, you’ll see directories named like:
+
+models--facebook--blenderbot-400M-distill
+
+We can delete just that folder:
+
+rm -rf ~/.cache/huggingface/hub/models--facebook--blenderbot-400M-distill
+
+
+3. Clear transformer cache using the built-in API
+
+Transformers has a built-in cleanup command:
+
+transformers-cli cache --clear
+
+Or the newer equivalent:
+
+huggingface-cli cache delete
+
+You can check what is cached:
+
+huggingface-cli cache list
+
+And delete a specific entry:
+
+huggingface-cli cache delete <repo_id>
